@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ysn.test0410.R;
-import com.ysn.test0410.activity.RecyclerViewActivity;
 
 /**
  * 项目名称：Test0410
