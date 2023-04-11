@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ysn.test0410.R;
@@ -32,9 +31,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
         // 构造一些数据
         for (int i = 0; i < 50; i++) {
             App app = new App();
-            app.title = "xx应用" + i;
-            app.content = "版本xx|大小xx" + i;
-            app.imageId = R.mipmap.ic_launcher;
+            app.appName = "xx应用" + i;
+            app.versionName = "100" + i;
+            app.appSize = 1.5 + i;
             app.imagePath = "sdcard/AAAPUSH/ic_launcher.jpg";
             mAppsList.add(app);
         }

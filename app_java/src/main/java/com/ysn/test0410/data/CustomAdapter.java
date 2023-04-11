@@ -1,5 +1,6 @@
 package com.ysn.test0410.data;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
@@ -31,22 +32,22 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         return customViewHolder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         App app = Data.getInstance().getAppsList().get(position);
-//        holder.mImageView.setImageResource(app.imageId);
         Log.d(TAG, Uri.parse(app.imagePath).getPath());
         holder.mImageView.setImageURI(null);
         holder.mImageView.setImageURI(Uri.parse(app.imagePath));
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "严嗣南真棒" + app.title, Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(v.getContext(), "严嗣南真棒" + app.appName, Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
-        holder.mTitleTv.setText(app.title);
-        holder.mTitleContent.setText(app.content);
+        holder.appName.setText(app.appName);
+        holder.appContent.setText("版本" + app.versionName + "|" + app.appSize + "M");
     }
 
     @Override

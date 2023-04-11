@@ -11,8 +11,10 @@ package com.ysn.test0410.data;
  */
 public class App {
     public String imagePath; // 应用图标地址
-    public String title; // 应用名称
-    public String content; // 内容：版本号、大小
-    public int imageId; // 图片
-
+    public String packageName; // 包名
+    public String appName; // 应用名称
+    public double appSize; // 应用大小
+    public int versionCode; // 版本号
+    public String versionName; // 版本名
+    public String apkUrl; // app链接
 }

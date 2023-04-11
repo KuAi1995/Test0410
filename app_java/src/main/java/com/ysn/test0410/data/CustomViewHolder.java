@@ -21,15 +21,15 @@ import com.ysn.test0410.R;
  */
 public class CustomViewHolder extends RecyclerView.ViewHolder {
     public ImageView mImageView;
-    public TextView mTitleTv;
-    public TextView mTitleContent;
+    public TextView appName;
+    public TextView appContent;
     public Button mButton;
 
     public CustomViewHolder(@NonNull View itemView) {
         super(itemView);
         mImageView = itemView.findViewById(R.id.imageView);
-        mTitleTv = itemView.findViewById(R.id.textView);
-        mTitleContent = itemView.findViewById(R.id.textView2);
+        appName = itemView.findViewById(R.id.textView);
+        appContent = itemView.findViewById(R.id.textView2);
         mButton = itemView.findViewById(R.id.button2);
     }
 }
