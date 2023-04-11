@@ -34,6 +34,7 @@ class CustomAdapter : RecyclerView.Adapter<CustomViewHolder>() {
         val app = Data.instance.appsList[position]
         Log.d(TAG, Uri.parse(app.imagePath).path!!)
         holder.mImageView.setImageURI(null)
+        holder.mImageView.setImageResource(R.mipmap.ic_launcher) // 防止无图片
         holder.mImageView.setImageURI(Uri.parse(app.imagePath))
         holder.mButton.setOnClickListener { v ->
             val intent = Intent(v.context, AppActivity::class.java)

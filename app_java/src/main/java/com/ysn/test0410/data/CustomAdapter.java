@@ -40,6 +40,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         App app = Data.getInstance().getAppsList().get(position);
         Log.d(TAG, Uri.parse(app.imagePath).getPath());
         holder.mImageView.setImageURI(null);
+        holder.mImageView.setImageResource(R.mipmap.ic_launcher); // 防止无图片
         holder.mImageView.setImageURI(Uri.parse(app.imagePath));
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
