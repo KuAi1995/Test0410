@@ -10,7 +10,9 @@ package com.ysn.test0410.data;
  * 修改备注：
  */
 public class App {
-    public String title; // 标题
-    public String content; // 内容
+    public String imagePath; // 应用图标地址
+    public String title; // 应用名称
+    public String content; // 内容：版本号、大小
     public int imageId; // 图片
+
 }

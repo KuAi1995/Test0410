@@ -3,6 +3,7 @@ package com.ysn.test0410.activity;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,15 +32,17 @@ public class RecyclerViewActivity extends AppCompatActivity {
         // 构造一些数据
         for (int i = 0; i < 50; i++) {
             App app = new App();
-            app.title = "标题" + i;
-            app.content = "内容" + i;
+            app.title = "xx应用" + i;
+            app.content = "版本xx|大小xx" + i;
             app.imageId = R.mipmap.ic_launcher;
+            app.imagePath = "sdcard/AAAPUSH/ic_launcher.jpg";
             mAppsList.add(app);
         }
         Data.getInstance().setAppsList(mAppsList);
         mCustomAdapter = new CustomAdapter();
         mRecyclerView.setAdapter(mCustomAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(RecyclerViewActivity.this);
+        GridLayoutManager layoutManager = new GridLayoutManager(RecyclerViewActivity.this,3); // 每行3个
+//        layoutManager.setOrientation(RecyclerView.HORIZONTAL); // 设置横向滚动
         mRecyclerView.setLayoutManager(layoutManager);
     }
 }

@@ -1,5 +1,7 @@
 package com.ysn.test0410.data;
 
+import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import com.ysn.test0410.R;
  * 修改备注：
  */
 public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
+    private static final String TAG = CustomAdapter.class.getSimpleName();
 
     @NonNull
     @Override
@@ -31,7 +34,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         App app = Data.getInstance().getAppsList().get(position);
-        holder.mImageView.setImageResource(app.imageId);
+//        holder.mImageView.setImageResource(app.imageId);
+        Log.d(TAG, Uri.parse(app.imagePath).getPath());
+        holder.mImageView.setImageURI(null);
+        holder.mImageView.setImageURI(Uri.parse(app.imagePath));
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
