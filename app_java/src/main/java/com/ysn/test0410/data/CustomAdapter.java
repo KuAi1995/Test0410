@@ -1,6 +1,7 @@
 package com.ysn.test0410.data;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ysn.test0410.R;
+import com.ysn.test0410.activity.AppActivity;
 
 /**
  * 项目名称：Test0410
@@ -42,8 +44,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "严嗣南真棒" + app.appName, Toast.LENGTH_SHORT);
-                toast.show();
+//                Toast toast = Toast.makeText(v.getContext(), "严嗣南真棒" + app.appName, Toast.LENGTH_SHORT);
+//                toast.show();
+                Intent intent = new Intent(v.getContext(), AppActivity.class);
+                v.getContext().startActivity(intent);
             }
         });
         holder.appName.setText(app.appName);
