@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.ysn.app_kotlin.R
 
@@ -18,14 +19,16 @@ import com.ysn.app_kotlin.R
  */
 class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var mImageView: ImageView
-    var mTitleTv: TextView
-    var mTitleContent: TextView
+    var appName: TextView
+    var appContent: TextView
     var mButton: Button
+    var mRootView: ConstraintLayout
 
     init {
         mImageView = itemView.findViewById(R.id.imageView)
-        mTitleTv = itemView.findViewById(R.id.textView)
-        mTitleContent = itemView.findViewById(R.id.textView2)
+        appName = itemView.findViewById(R.id.textView)
+        appContent = itemView.findViewById(R.id.textView2)
         mButton = itemView.findViewById(R.id.button2)
+        mRootView = itemView.findViewById(R.id.rootView)
     }
 }

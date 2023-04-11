@@ -10,10 +10,28 @@ package com.ysn.app_kotlin.data
  * 修改备注：
  */
 class App {
-    var title // 标题
+    @JvmField
+    var imagePath // 应用图标地址
             : String? = null
-    var content // 内容
+    var packageName // 包名
             : String? = null
-    var imageId // 图片
+    @JvmField
+    var appName // 应用名称
+            : String? = null
+    @JvmField
+    var appSize // 应用大小
+            = 0.0
+    var versionCode // 版本号
             = 0
+    @JvmField
+    var versionName // 版本名
+            : String? = null
+    var apkUrl // app链接
+            : String? = null
+    @JvmField
+    var timeUpdate // 更新时间
+            : String? = null
+    @JvmField
+    var appIntroduction // 介绍
+            : String? = null
 }
