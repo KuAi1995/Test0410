@@ -17,4 +17,6 @@ public class App {
     public int versionCode; // 版本号
     public String versionName; // 版本名
     public String apkUrl; // app链接
+    public String timeUpdate; // 更新时间
+    public String appIntroduction; // 介绍
 }

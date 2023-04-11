@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ysn.test0410.R;
@@ -24,6 +25,7 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
     public TextView appName;
     public TextView appContent;
     public Button mButton;
+    public ConstraintLayout mRootView;
 
     public CustomViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -31,5 +33,6 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
         appName = itemView.findViewById(R.id.textView);
         appContent = itemView.findViewById(R.id.textView2);
         mButton = itemView.findViewById(R.id.button2);
+        mRootView = itemView.findViewById(R.id.rootView);
     }
 }

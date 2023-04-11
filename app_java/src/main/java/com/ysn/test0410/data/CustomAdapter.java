@@ -44,14 +44,31 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast toast = Toast.makeText(v.getContext(), "严嗣南真棒" + app.appName, Toast.LENGTH_SHORT);
-//                toast.show();
                 Intent intent = new Intent(v.getContext(), AppActivity.class);
+                intent.putExtra("imagePath", app.imagePath);
+                intent.putExtra("appName", app.appName);
+                intent.putExtra("versionName", app.versionName);
+                intent.putExtra("appSize", app.appSize);
+                intent.putExtra("appIntroduction", app.appIntroduction);
+                intent.putExtra("timeUpdate", app.timeUpdate);
+                v.getContext().startActivity(intent);
+            }
+        });
+        holder.mRootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AppActivity.class);
+                intent.putExtra("imagePath", app.imagePath);
+                intent.putExtra("appName", app.appName);
+                intent.putExtra("versionName", app.versionName);
+                intent.putExtra("appSize", app.appSize);
+                intent.putExtra("appIntroduction", app.appIntroduction);
+                intent.putExtra("timeUpdate", app.timeUpdate);
                 v.getContext().startActivity(intent);
             }
         });
         holder.appName.setText(app.appName);
-        holder.appContent.setText("版本" + app.versionName + "|" + app.appSize + "M");
+        holder.appContent.setText("版本" + app.versionName + "|" + app.appSize + "MB");
     }
 
     @Override

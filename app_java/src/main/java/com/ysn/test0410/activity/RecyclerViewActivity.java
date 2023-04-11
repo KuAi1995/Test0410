@@ -35,6 +35,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
             app.versionName = "100" + i;
             app.appSize = 1.5 + i;
             app.imagePath = "sdcard/AAAPUSH/ic_launcher.jpg";
+            app.appIntroduction = "本应用是" + i;
+            app.timeUpdate = "2023年4月" + i % 30 + "日";
             mAppsList.add(app);
         }
         Data.getInstance().setAppsList(mAppsList);
