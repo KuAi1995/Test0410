@@ -7,6 +7,9 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.ysn.app_kotlin.R
 import com.ysn.app_kotlin.activity.AppActivity
 
@@ -33,9 +36,20 @@ class CustomAdapter : RecyclerView.Adapter<CustomViewHolder>() {
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val app = Data.instance.appsList[position]
         Log.d(TAG, Uri.parse(app.imagePath).path!!)
-        holder.mImageView.setImageURI(null)
-        holder.mImageView.setImageResource(R.mipmap.ic_launcher) // 防止无图片
-        holder.mImageView.setImageURI(Uri.parse(app.imagePath))
+        val requestOptions = RequestOptions()
+            .placeholder(R.mipmap.ic_launcher)
+            .error(R.drawable.ic_launcher_background)
+            .fallback(R.drawable.ic_launcher_foreground)
+            .override(100, 100) // override指定加载图片大小
+
+        Glide.with(holder.mImageView.context)
+            .load(R.mipmap.ic_launcher)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(holder.mImageView)
+//        holder.mImageView.setImageURI(null)
+//        holder.mImageView.setImageResource(R.mipmap.ic_launcher) // 防止无图片
+//        holder.mImageView.setImageURI(Uri.parse(app.imagePath))
         holder.mButton.setOnClickListener { v ->
             val intent = Intent(v.context, AppActivity::class.java)
             intent.putExtra("imagePath", app.imagePath)

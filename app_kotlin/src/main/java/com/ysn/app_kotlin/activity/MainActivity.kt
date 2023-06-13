@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.ysn.app_kotlin.R
+import com.ysn.app_kotlin.test.AppDetailActivity
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -52,7 +53,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         if (mPermissionList.isEmpty()) {
-            val intent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
+            val intent = Intent(this@MainActivity, AppDetailActivity::class.java)
+            // val intent = Intent(this@MainActivity, RecyclerViewActivity::class.java)
             startActivity(intent)
         } else {
             val permissionsStringArray = mPermissionList.toTypedArray()

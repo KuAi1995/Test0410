@@ -6,11 +6,12 @@ import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.ysn.test0410.R;
 import com.ysn.test0410.activity.AppActivity;
 
@@ -39,9 +40,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         App app = Data.getInstance().getAppsList().get(position);
         Log.d(TAG, Uri.parse(app.imagePath).getPath());
-        holder.mImageView.setImageURI(null);
-        holder.mImageView.setImageResource(R.mipmap.ic_launcher); // 防止无图片
-        holder.mImageView.setImageURI(Uri.parse(app.imagePath));
+        RequestOptions requestOptions = new RequestOptions()
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.drawable.ic_launcher_background)
+                .fallback(R.drawable.ic_launcher_foreground)
+                .override(100,100); // override指定加载图片大小
+        Glide.with(holder.mImageView.getContext())
+                .load(Uri.parse(app.imagePath))
+                .apply(requestOptions)
+                .into(holder.mImageView);
+
+
+//        holder.mImageView.setImageURI(null);
+//        holder.mImageView.setImageResource(R.mipmap.ic_launcher); // 防止无图片
+//        holder.mImageView.setImageURI(Uri.parse(app.imagePath));
         holder.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
